@@ -69,3 +69,12 @@ This app is configured for Heroku deployment.
 ## Environment Variables
 
 This application does not require specific environment variables for its basic operation as a client-side counter. If extended with backend features, environment variables might be needed (e.g., for API keys or database URLs).
+## Controlling Rotation Speed
+
+The application allows you to control the speed at which the counter digits update (and thus rotate).
+
+-   **Update Interval (ms):** In the control panel below the counter, you will find an input field labeled "Update Interval (ms)".
+-   Enter the desired time in milliseconds (e.g., 1000 for 1 second, 500 for half a second) for how often the counter should increment.
+-   **Set Speed Button:** Click the "Set Speed" button to apply the new interval.
+
+The default interval is 1000ms (1 second).
