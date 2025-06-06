@@ -1,96 +1,118 @@
 body {
     display: flex;
-    flex-direction: column; /* Align items vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0;
+    background-color: #222;
     font-family: 'Arial', sans-serif;
+    color: #eee;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 40px;
 }
 
 .counter-container {
     display: flex;
+    border: 2px solid #555;
+    padding: 10px;
     background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px; /* Add some space for the controls */
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    /* Aggiungiamo una prospettiva al contenitore per l'effetto 3D */
+    perspective: 500px;
 }
 
-.digit-slot { /* This will be the new container for each drum */
-    width: 60px;
-    height: 90px;
-    margin: 0 5px;
+.digit-wrapper {
+    width: 60px; /* Larghezza di ogni cifra */
+    height: 80px; /* Altezza visibile per una cifra */
+    overflow: hidden; /* Nasconde le cifre che non sono attive */
+    border: 1px solid #444;
     border-radius: 5px;
-    background-color: #222; /* Darker background for the slot */
-    overflow: hidden; /* Crucial for clipping */
+    margin: 0 5px;
     position: relative;
-    perspective: 1000px; /* Enable 3D space for children */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #111;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.7);
+
+    /* Imposta la prospettiva per ogni ruota */
+    perspective: 500px;
+    /* Punto di origine per le trasformazioni */
+    transform-origin: center center;
 }
 
-.digit-drum { /* This element will rotate */
-    width: 100%;
-    height: 100%;
+.digit-wheel {
     position: absolute;
-    transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth, slightly bouncy rotation */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* La ruota occupa tutto lo spazio del wrapper */
+    transform-style: preserve-3d; /* Fondamentale per mantenere le trasformazioni 3D dei figli */
+    transition: transform 0.6s ease-in-out; /* Animazione fluida della rotazione */
 }
 
 .digit-face {
     position: absolute;
-    width: 60px;
-    height: 90px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
+    font-size: 50px;
     font-weight: bold;
-    color: #333;
-    backface-visibility: hidden; /* Hide the back of the face during rotation */
-    /* Positioning of faces will be done by JS based on the number of faces */
+    color: #00ff00; /* Colore delle cifre */
+    text-shadow: 0 0 10px rgba(0,255,0,0.7);
+    background-color: rgba(0,0,0,0.8); /* Sfondo delle facce */
+    border: 1px solid rgba(0,255,0,0.2); /* Bordo leggero per definire le facce */
+    backface-visibility: hidden; /* Nasconde le facce quando sono rivolte all'indietro */
 }
 
-/* Example of how faces would be positioned (JS will calculate this)
-   If we have 10 faces (0-9), each face is rotated around the X-axis.
-   The angle for each face would be (360 / number_of_faces) * index.
-   The translateZ would be (height / 2) / tan(PI / number_of_faces).
-*/
+/* Posizionamento 3D di ogni faccia */
+/* Queste sono le rotazioni e traslazioni per posizionare ogni cifra */
+/* Il valore di translateZ è calcolato basandosi sull'altezza della cifra (80px) */
+/* e sul numero di facce (10), per formare un decagono (o un cilindro approssimato) */
+/* La formula è: (altezza_cifra / 2) / tan(180 / numero_facce) */
+/* Per 80px di altezza e 10 facce: (80 / 2) / tan(18) = 40 / 0.3249 = circa 123px */
+.face-0 { transform: rotateX(0deg) translateZ(123px); }
+.face-1 { transform: rotateX(-36deg) translateZ(123px); }
+.face-2 { transform: rotateX(-72deg) translateZ(123px); }
+.face-3 { transform: rotateX(-108deg) translateZ(123px); }
+.face-4 { transform: rotateX(-144deg) translateZ(123px); }
+.face-5 { transform: rotateX(-180deg) translateZ(123px); }
+.face-6 { transform: rotateX(-216deg) translateZ(123px); }
+.face-7 { transform: rotateX(-252deg) translateZ(123px); }
+.face-8 { transform: rotateX(-288deg) translateZ(123px); }
+.face-9 { transform: rotateX(-324deg) translateZ(123px); }
 
-.controls-container {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 5px;
+/* Stile per l'ombra quando le cifre sono in movimento */
+.digit-wheel.rolling .digit-face {
+    box-shadow: 0 0 20px rgba(0,255,0,0.5); /* Effetto luminoso durante la rotazione */
 }
 
-.controls-container label {
-    margin-right: 10px;
+/* Stile per la "parte tagliata" o i bordi */
+/* Possiamo aggiungere degli pseudo-elementi per simulare il taglio */
+/* Questo è un esempio di come potresti iniziare, potresti voler migliorare */
+/* con elementi aggiuntivi per i tagli laterali/superiori/inferiori */
+.digit-wrapper::before,
+.digit-wrapper::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Spessore del taglio */
+    background-color: rgba(0, 0, 0, 0.7); /* Colore del taglio */
+    z-index: 2; /* Sopra le cifre */
 }
 
-.controls-container input[type="number"] {
-    width: 70px;
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.digit-wrapper::before {
+    top: 0;
+    border-bottom: 1px solid #00ff00; /* Linea superiore */
 }
 
-.controls-container button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.controls-container button:hover {
-    background-color: #45a049;
+.digit-wrapper::after {
+    bottom: 0;
+    border-top: 1px solid #00ff00; /* Linea inferiore */
 }
