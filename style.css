@@ -4,41 +4,46 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #222;
+    background-color: #e0e0e0; /* Light gray background for the page */
     font-family: 'Arial', sans-serif;
-    color: #eee;
+    color: #333; /* Default text color for the page */
     margin: 0;
+    padding: 20px; /* Add some padding to the body */
+    box-sizing: border-box;
 }
 
 h1 {
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduced margin */
+    color: #333;
+}
+
+.counter-wrapper { /* New wrapper for scaling */
+    transform-origin: center center;
+    transition: transform 0.3s ease-out;
+    margin-bottom: 30px; /* Space for controls */
 }
 
 .counter-container {
     display: flex;
-    border: 2px solid #555;
-    padding: 10px;
-    background-color: #333;
+    border: 2px solid #bbb; /* Lighter border for classic look */
+    padding: 15px;
+    background-color: #ffffff; /* White counter body */
     border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-    /* Aggiungiamo una prospettiva al contenitore per l'effetto 3D */
-    perspective: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Softer shadow for classic look */
+    /* perspective: 500px; */ /* Perspective will be on digit-wrapper if needed individually or a shared one */
 }
 
 .digit-wrapper {
-    width: 60px; /* Larghezza di ogni cifra */
-    height: 80px; /* Altezza visibile per una cifra */
-    overflow: hidden; /* Nasconde le cifre che non sono attive */
-    border: 1px solid #444;
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid #ccc; /* Lighter border */
     border-radius: 5px;
     margin: 0 5px;
     position: relative;
-    background-color: #111;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.7);
-
-    /* Imposta la prospettiva per ogni ruota */
-    perspective: 500px;
-    /* Punto di origine per le trasformazioni */
+    background-color: #f8f8f8; /* Very light gray for digit slot background */
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    perspective: 800px; /* Increased perspective for a less extreme effect, applied per wrapper */
     transform-origin: center center;
 }
 
@@ -47,9 +52,9 @@ h1 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* La ruota occupa tutto lo spazio del wrapper */
-    transform-style: preserve-3d; /* Fondamentale per mantenere le trasformazioni 3D dei figli */
-    transition: transform 0.6s ease-in-out; /* Animazione fluida della rotazione */
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out; /* Default rotation speed, can be adjusted by JS */
 }
 
 .digit-face {
@@ -63,19 +68,15 @@ h1 {
     align-items: center;
     font-size: 50px;
     font-weight: bold;
-    color: #00ff00; /* Colore delle cifre */
-    text-shadow: 0 0 10px rgba(0,255,0,0.7);
-    background-color: rgba(0,0,0,0.8); /* Sfondo delle facce */
-    border: 1px solid rgba(0,255,0,0.2); /* Bordo leggero per definire le facce */
-    backface-visibility: hidden; /* Nasconde le facce quando sono rivolte all'indietro */
+    color: #000000; /* Black text for digits */
+    background-color: #ffffff; /* White background for digit faces */
+    border: 1px solid #ddd; /* Light border for faces */
+    backface-visibility: hidden;
+    /* Dynamic highlight will be applied by JS */
 }
 
-/* Posizionamento 3D di ogni faccia */
-/* Queste sono le rotazioni e traslazioni per posizionare ogni cifra */
-/* Il valore di translateZ è calcolato basandosi sull'altezza della cifra (80px) */
-/* e sul numero di facce (10), per formare un decagono (o un cilindro approssimato) */
-/* La formula è: (altezza_cifra / 2) / tan(180 / numero_facce) */
-/* Per 80px di altezza e 10 facce: (80 / 2) / tan(18) = 40 / 0.3249 = circa 123px */
+/* Positioning 3D of each face - translateZ might need adjustment if height/perspective changes significantly */
+/* Current translateZ(123px) is based on 80px height and 10 faces. */
 .face-0 { transform: rotateX(0deg) translateZ(123px); }
 .face-1 { transform: rotateX(-36deg) translateZ(123px); }
 .face-2 { transform: rotateX(-72deg) translateZ(123px); }
@@ -87,32 +88,108 @@ h1 {
 .face-8 { transform: rotateX(-288deg) translateZ(123px); }
 .face-9 { transform: rotateX(-324deg) translateZ(123px); }
 
-/* Stile per l'ombra quando le cifre sono in movimento */
-.digit-wheel.rolling .digit-face {
-    box-shadow: 0 0 20px rgba(0,255,0,0.5); /* Effetto luminoso durante la rotazione */
-}
-
-/* Stile per la "parte tagliata" o i bordi */
-/* Possiamo aggiungere degli pseudo-elementi per simulare il taglio */
-/* Questo è un esempio di come potresti iniziare, potresti voler migliorare */
-/* con elementi aggiuntivi per i tagli laterali/superiori/inferiori */
+/* Pseudo-elements for "cut-off" effect - classic styling */
 .digit-wrapper::before,
 .digit-wrapper::after {
     content: '';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 5px; /* Spessore del taglio */
-    background-color: rgba(0, 0, 0, 0.7); /* Colore del taglio */
-    z-index: 2; /* Sopra le cifre */
+    height: 3px; /* Thinner cut-off lines */
+    background-color: #cccccc; /* Lighter color for cut-off lines */
+    z-index: 2;
 }
 
 .digit-wrapper::before {
     top: 0;
-    border-bottom: 1px solid #00ff00; /* Linea superiore */
+    border-bottom: 1px solid #bbb;
 }
 
 .digit-wrapper::after {
     bottom: 0;
-    border-top: 1px solid #00ff00; /* Linea inferiore */
+    border-top: 1px solid #bbb;
+}
+
+/* --- UI Controls Styling --- */
+.controls-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1000px; /* Max width for the controls panel */
+    box-sizing: border-box;
+}
+
+.control-group {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.control-group h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.control-group input[type="range"],
+.control-group input[type="number"] {
+    width: calc(100% - 20px); /* Adjust width considering padding/border */
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.control-group input[type="number"] {
+    width: 80px; /* Smaller width for number inputs */
+}
+
+.zoom-controls button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.zoom-controls button:hover {
+    background-color: #4cae4c;
+}
+.zoom-controls { text-align: center; } /* Center zoom buttons */
+
+#lightSourceAngleValue, #rotationSpeedValue, /* etc. for other readouts */
+#shadowOpacityValue, #shadowOffsetXValue, #shadowOffsetYValue, #shadowBlurValue,
+#highlightOpacityValue, #sceneBrightnessValue {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333;
+}
+
+/* Scene Brightness Overlay */
+#sceneBrightnessOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Initially transparent */
+    z-index: 1000; /* High z-index to cover everything */
+    pointer-events: none; /* Allows clicks to go through */
+    transition: background-color 0.3s ease; /* Smooth transition */
 }

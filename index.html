@@ -3,98 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagiri Meccanico 3D</title>
+    <title>Contagiri Meccanico Classico 3D</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Contagiri Meccanico 3D</h1>
-    <div class="counter-container">
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+<div id="sceneBrightnessOverlay"></div>
+    <h1>Contagiri Meccanico Classico 3D</h1>
+
+    <div class="counter-wrapper">
+        <div class="counter-container">
+            <!-- Digit wrappers will be kept as is from previous step -->
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
-        </div>
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
-        </div>
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
-        </div>
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
-        </div>
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
-        </div>
-        <div class="digit-wrapper">
-            <div class="digit-wheel">
-                <div class="digit-face face-0">0</div>
-                <div class="digit-face face-1">1</div>
-                <div class="digit-face face-2">2</div>
-                <div class="digit-face face-3">3</div>
-                <div class="digit-face face-4">4</div>
-                <div class="digit-face face-5">5</div>
-                <div class="digit-face face-6">6</div>
-                <div class="digit-face face-7">7</div>
-                <div class="digit-face face-8">8</div>
-                <div class="digit-face face-9">9</div>
+            <div class="digit-wrapper">
+                <div class="digit-wheel">
+                    <div class="digit-face face-0">0</div><div class="digit-face face-1">1</div><div class="digit-face face-2">2</div><div class="digit-face face-3">3</div><div class="digit-face face-4">4</div><div class="digit-face face-5">5</div><div class="digit-face face-6">6</div><div class="digit-face face-7">7</div><div class="digit-face face-8">8</div><div class="digit-face face-9">9</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script type="module" src="/main.js"></script> <!-- Changed from script.js to main.js -->
+    <div class="controls-panel">
+        <!-- Controls will be added in detail in Step 3 -->
+        <div class="control-group zoom-controls">
+            <h3>Zoom</h3>
+<button id="zoomInButton">+</button><button id="zoomOutButton">-</button><span id="zoomLevelDisplay">100%</span>
+        </div>
+        <div class="control-group">
+            <h3>Rotation Speed</h3>
+            <label for="rotationSpeedSlider">Speed (ms per step): <span id="rotationSpeedValueDisplay">1000</span>ms</label>
+            <input type="range" id="rotationSpeedSlider" min="100" max="2000" value="1000" step="50">
+        </div>
+
+        <div class="control-group">
+            <h3>Shadow Control</h3>
+            <label for="shadowOpacitySlider">Opacity: <span id="shadowOpacityValueDisplay">0.1</span></label>
+            <input type="range" id="shadowOpacitySlider" min="0" max="1" value="0.1" step="0.05">
+            <label for="shadowOffsetXSlider">Offset X: <span id="shadowOffsetXValueDisplay">0</span>px</label>
+            <input type="range" id="shadowOffsetXSlider" min="-50" max="50" value="0" step="1">
+            <label for="shadowOffsetYSlider">Offset Y: <span id="shadowOffsetYValueDisplay">4</span>px</label>
+            <input type="range" id="shadowOffsetYSlider" min="-50" max="50" value="4" step="1">
+            <label for="shadowBlurSlider">Blur Radius: <span id="shadowBlurValueDisplay">8</span>px</label>
+            <input type="range" id="shadowBlurSlider" min="0" max="50" value="8" step="1">
+        </div>
+
+        <div class="control-group">
+            <h3>Lighting Effects</h3>
+            <label for="highlightOpacitySlider">Highlight Opacity: <span id="highlightOpacityValueDisplay">0.5</span></label>
+            <input type="range" id="highlightOpacitySlider" min="0" max="1" value="0.5" step="0.05">
+            <label for="sceneBrightnessSlider">Scene Brightness: <span id="sceneBrightnessValueDisplay">1</span></label>
+            <input type="range" id="sceneBrightnessSlider" min="0.5" max="1.5" value="1" step="0.05">
+        </div>
+
+        <div class="control-group">
+            <h3>Simulated Light Source</h3>
+            <label for="lightSourceAngleSlider">Angle (deg): <span id="lightSourceAngleValueDisplay">45</span>deg</label>
+            <input type="range" id="lightSourceAngleSlider" min="0" max="360" value="45" step="1">
+            <label for="lightSourceDistanceSlider">Distance: <span id="lightSourceDistanceValueDisplay">100</span></label>
+            <input type="range" id="lightSourceDistanceSlider" min="50" max="300" value="100" step="10">
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
 </body>
 </html>

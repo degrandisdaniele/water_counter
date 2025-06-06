@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagiri Meccanico 3D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Contagiri Meccanico 3D</h1>
+    <div class="counter-container">
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+        <div class="digit-wrapper">
+            <div class="digit-wheel">
+                <div class="digit-face face-0">0</div>
+                <div class="digit-face face-1">1</div>
+                <div class="digit-face face-2">2</div>
+                <div class="digit-face face-3">3</div>
+                <div class="digit-face face-4">4</div>
+                <div class="digit-face face-5">5</div>
+                <div class="digit-face face-6">6</div>
+                <div class="digit-face face-7">7</div>
+                <div class="digit-face face-8">8</div>
+                <div class="digit-face face-9">9</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script> <!-- Changed from script.js to main.js -->
+</body>
+</html>
