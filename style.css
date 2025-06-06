@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.counter-container {
+    display: flex;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.digit {
+    width: 60px;
+    height: 90px;
+    background-color: #fff;
+    margin: 0 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden; /* Important for the rotating effect */
+    position: relative; /* For positioning the inner span */
+}
+
+/* Basic styling for the rotating drum effect - will be enhanced by JS */
+.digit span {
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
